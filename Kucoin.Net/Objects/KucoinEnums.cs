@@ -71,7 +71,26 @@
         /// <summary>
         /// Trade account
         /// </summary>
-        Trade
+        Trade,
+        /// <summary>
+        /// Margin account
+        /// </summary>
+        Margin
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum KucoinTradeType
+    {
+        /// <summary>
+        /// Spot Trade
+        /// </summary>
+        Trade,
+        /// <summary>
+        /// Margin Trade
+        /// </summary>
+        Margin_Trade
     }
 
     /// <summary>
