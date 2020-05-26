@@ -812,7 +812,7 @@ namespace Kucoin.Net
             string symbol,
             KucoinOrderSide side, 
             KucoinNewOrderType type, 
-            KucoinTradeType tradeType,
+            KucoinTradeType? tradeType = null,
             decimal? price = null, 
             decimal? quantity = null, 
             decimal? funds = null,
@@ -856,7 +856,7 @@ namespace Kucoin.Net
             string symbol,
             KucoinOrderSide side,
             KucoinNewOrderType type,
-            KucoinTradeType tradeType, 
+            KucoinTradeType? tradeType = null, 
             decimal? price = null,
             decimal? quantity = null,
             decimal? funds = null,
@@ -892,9 +892,9 @@ namespace Kucoin.Net
                 { "symbol", symbol },
                 { "side", JsonConvert.SerializeObject(side, new OrderSideConverter(false)) },
                 { "type", JsonConvert.SerializeObject(type, new NewOrderTypeConverter(false)) },
-                { "tradeType", JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) },
                 { "clientOid", clientOrderId ?? Guid.NewGuid().ToString() }
             };
+            parameters.AddOptionalParameter("tradeType", tradeType.HasValue ? JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) : null);
             parameters.AddOptionalParameter("price", price);
             parameters.AddOptionalParameter("size", quantity);
             parameters.AddOptionalParameter("funds", funds);
