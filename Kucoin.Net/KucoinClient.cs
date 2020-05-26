@@ -938,7 +938,7 @@ namespace Kucoin.Net
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        public WebCallResult<KucoinCancelledOrders> CancelAllOrders(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default) => CancelAllOrdersAsync(tradeType, symbol, ct).Result;
+        public WebCallResult<KucoinCancelledOrders> CancelAllOrders(KucoinTradeType? tradeType = null, string? symbol = null, CancellationToken ct = default) => CancelAllOrdersAsync(tradeType, symbol, ct).Result;
 
         /// <summary>
         /// Cancel all open orders
@@ -947,20 +947,20 @@ namespace Kucoin.Net
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        public async Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default)
+        public async Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(KucoinTradeType? tradeType = null, string? symbol = null, CancellationToken ct = default)
         {
             symbol?.ValidateKucoinSymbol();
             var parameters = new Dictionary<string, object>()
-            {
-                { "tradeType", JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) }
-            };
+                ;
             parameters.AddOptionalParameter("symbol", symbol);
+            parameters.AddOptionalParameter("tradeType", tradeType.HasValue ? JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) : null);
             return await Execute<KucoinCancelledOrders>(GetUri("orders"), HttpMethod.Delete, ct, parameters, true).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Gets a list of orders
         /// </summary>
+        /// <param name="tradeType">Filter list by spot trade or margin trade</param>
         /// <param name="symbol">Filter list by symbol</param>
         /// <param name="type">Filter list by order type</param>
         /// <param name="side">Filter list by order side</param>
@@ -971,12 +971,13 @@ namespace Kucoin.Net
         /// <param name="pageSize">The amount of results per page</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of orders</returns>
-        public WebCallResult<KucoinPaginated<KucoinOrder>> GetOrders(string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default) => 
-            GetOrdersAsync(symbol, side, type, startTime, endTime, status, currentPage, pageSize, ct).Result;
+        public WebCallResult<KucoinPaginated<KucoinOrder>> GetOrders(KucoinTradeType tradeType, string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default) => 
+            GetOrdersAsync(tradeType, symbol, side, type, startTime, endTime, status, currentPage, pageSize, ct).Result;
 
         /// <summary>
         /// Gets a list of orders
         /// </summary>
+        /// <param name="tradeType">Filter list by spot trade or margin trade</param>
         /// <param name="symbol">Filter list by symbol</param>
         /// <param name="type">Filter list by order type</param>
         /// <param name="side">Filter list by order side</param>
@@ -987,12 +988,15 @@ namespace Kucoin.Net
         /// <param name="pageSize">The amount of results per page</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of orders</returns>
-        public async Task<WebCallResult<KucoinPaginated<KucoinOrder>>> GetOrdersAsync(string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default)
+        public async Task<WebCallResult<KucoinPaginated<KucoinOrder>>> GetOrdersAsync(KucoinTradeType tradeType, string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default)
         {
             symbol?.ValidateKucoinSymbol();
             pageSize?.ValidateIntBetween(nameof(pageSize), 10, 500);
 
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>()
+            {
+                { "tradeType", JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) }
+            };
             parameters.AddOptionalParameter("symbol", symbol);
             parameters.AddOptionalParameter("side", side.HasValue ? JsonConvert.SerializeObject(side, new OrderSideConverter(false)) : null);
             parameters.AddOptionalParameter("type", type.HasValue ? JsonConvert.SerializeObject(type, new OrderTypeConverter(false)) : null);

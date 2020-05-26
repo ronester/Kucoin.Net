@@ -653,7 +653,7 @@ namespace Kucoin.Net.Interfaces
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        WebCallResult<KucoinCancelledOrders> CancelAllOrders(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default);
+        WebCallResult<KucoinCancelledOrders> CancelAllOrders(KucoinTradeType? tradeType = null, string? symbol = null, CancellationToken ct = default);
 
         /// <summary>
         /// Cancel all open orders
@@ -662,11 +662,12 @@ namespace Kucoin.Net.Interfaces
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default);
+        Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(KucoinTradeType? tradeType = null, string? symbol = null, CancellationToken ct = default);
 
         /// <summary>
         /// Gets a list of orders
         /// </summary>
+        /// <param name="tradeType">Filter list by spot trade or margin trade</param>
         /// <param name="symbol">Filter list by symbol</param>
         /// <param name="type">Filter list by order type</param>
         /// <param name="side">Filter list by order side</param>
@@ -677,11 +678,12 @@ namespace Kucoin.Net.Interfaces
         /// <param name="pageSize">The amount of results per page</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of orders</returns>
-        WebCallResult<KucoinPaginated<KucoinOrder>> GetOrders(string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default);
+        WebCallResult<KucoinPaginated<KucoinOrder>> GetOrders(KucoinTradeType tradeType, string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default);
 
         /// <summary>
         /// Gets a list of orders
         /// </summary>
+        /// <param name="tradeType">Filter list by spot trade or margin trade</param>
         /// <param name="symbol">Filter list by symbol</param>
         /// <param name="type">Filter list by order type</param>
         /// <param name="side">Filter list by order side</param>
@@ -692,7 +694,7 @@ namespace Kucoin.Net.Interfaces
         /// <param name="pageSize">The amount of results per page</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of orders</returns>
-        Task<WebCallResult<KucoinPaginated<KucoinOrder>>> GetOrdersAsync(string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default);
+        Task<WebCallResult<KucoinPaginated<KucoinOrder>>> GetOrdersAsync(KucoinTradeType tradeType, string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, KucoinOrderStatus? status = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default);
 
         /// <summary>
         /// Gets a list of max 1000 orders in the last 24 hours

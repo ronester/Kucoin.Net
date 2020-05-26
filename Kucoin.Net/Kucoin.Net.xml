@@ -604,7 +604,7 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrders(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrders(System.Nullable{Kucoin.Net.Objects.KucoinTradeType},System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
@@ -613,7 +613,7 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrdersAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrdersAsync(System.Nullable{Kucoin.Net.Objects.KucoinTradeType},System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
@@ -622,10 +622,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetOrders(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetOrders(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of orders
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -637,10 +638,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetOrdersAsync(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetOrdersAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of orders
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -1601,7 +1603,7 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrders(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrders(System.Nullable{Kucoin.Net.Objects.KucoinTradeType},System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
@@ -1610,7 +1612,7 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrdersAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrdersAsync(System.Nullable{Kucoin.Net.Objects.KucoinTradeType},System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
@@ -1619,10 +1621,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.GetOrders(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.GetOrders(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of orders
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -1634,10 +1637,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.GetOrdersAsync(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.GetOrdersAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{Kucoin.Net.Objects.KucoinOrderStatus},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of orders
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
