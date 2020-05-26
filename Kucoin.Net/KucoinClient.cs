@@ -934,21 +934,26 @@ namespace Kucoin.Net
         /// <summary>
         /// Cancel all open orders
         /// </summary>
+        /// <param name="tradeType">cancel orders on a spot trade account or margin account</param>
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        public WebCallResult<KucoinCancelledOrders> CancelAllOrders(string? symbol = null, CancellationToken ct = default) => CancelAllOrdersAsync(symbol, ct).Result;
+        public WebCallResult<KucoinCancelledOrders> CancelAllOrders(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default) => CancelAllOrdersAsync(tradeType, symbol, ct).Result;
 
         /// <summary>
         /// Cancel all open orders
         /// </summary>
+        /// <param name="tradeType">cancel orders on a spot trade account or margin account</param>
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        public async Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(string? symbol = null, CancellationToken ct = default)
+        public async Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default)
         {
             symbol?.ValidateKucoinSymbol();
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>()
+            {
+                { "tradeType", JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) }
+            };
             parameters.AddOptionalParameter("symbol", symbol);
             return await Execute<KucoinCancelledOrders>(GetUri("orders"), HttpMethod.Delete, ct, parameters, true).ConfigureAwait(false);
         }

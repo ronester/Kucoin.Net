@@ -604,18 +604,20 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrders(System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrders(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
+            <param name="tradeType">cancel orders on a spot trade account or margin account</param>
             <param name="symbol">Only cancel orders for this symbol</param>
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrdersAsync(System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.CancelAllOrdersAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
+            <param name="tradeType">cancel orders on a spot trade account or margin account</param>
             <param name="symbol">Only cancel orders for this symbol</param>
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
@@ -1599,18 +1601,20 @@
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrders(System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrders(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
+            <param name="tradeType">cancel orders on a spot trade account or margin account</param>
             <param name="symbol">Only cancel orders for this symbol</param>
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrdersAsync(System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.CancelAllOrdersAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Threading.CancellationToken)">
             <summary>
             Cancel all open orders
             </summary>
+            <param name="tradeType">cancel orders on a spot trade account or margin account</param>
             <param name="symbol">Only cancel orders for this symbol</param>
             <param name="ct">Cancellation token</param>
             <returns>List of cancelled orders</returns>

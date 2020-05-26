@@ -649,18 +649,20 @@ namespace Kucoin.Net.Interfaces
         /// <summary>
         /// Cancel all open orders
         /// </summary>
+        /// <param name="tradeType">cancel orders on a spot trade account or margin account</param>
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        WebCallResult<KucoinCancelledOrders> CancelAllOrders(string? symbol = null, CancellationToken ct = default);
+        WebCallResult<KucoinCancelledOrders> CancelAllOrders(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default);
 
         /// <summary>
         /// Cancel all open orders
         /// </summary>
+        /// <param name="tradeType">cancel orders on a spot trade account or margin account</param>
         /// <param name="symbol">Only cancel orders for this symbol</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of cancelled orders</returns>
-        Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(string? symbol = null, CancellationToken ct = default);
+        Task<WebCallResult<KucoinCancelledOrders>> CancelAllOrdersAsync(KucoinTradeType tradeType, string? symbol = null, CancellationToken ct = default);
 
         /// <summary>
         /// Gets a list of orders
