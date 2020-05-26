@@ -30,6 +30,11 @@ namespace Kucoin.Net.Objects
         [JsonConverter(typeof(OrderTypeConverter))]
         public KucoinOrderType Type { get; set; }
         /// <summary>
+        /// The trade type, such as Spot or Margin
+        /// </summary>
+        [JsonConverter(typeof(TradeTypeConverter))]
+        public KucoinTradeType TradeType { get; set; }
+        /// <summary>
         /// The side of the order
         /// </summary>
         [JsonConverter(typeof(OrderSideConverter))]

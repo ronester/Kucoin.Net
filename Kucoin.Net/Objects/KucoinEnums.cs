@@ -90,7 +90,7 @@
         /// <summary>
         /// Margin Trade
         /// </summary>
-        Margin_Trade
+        MarginTrade
     }
 
     /// <summary>

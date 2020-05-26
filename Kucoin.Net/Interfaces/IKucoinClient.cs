@@ -548,6 +548,7 @@ namespace Kucoin.Net.Interfaces
         /// <param name="symbol">The symbol the order is for</param>
         /// <param name="side">The side of the order</param>
         /// <param name="type">The type of the order</param>
+        /// <param name="tradeType">Spot or margin trade</param>
         /// <param name="price">The price of the order. Only valid for limit orders.</param>
         /// <param name="quantity">The quantity of the order</param>
         /// <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -568,6 +569,7 @@ namespace Kucoin.Net.Interfaces
             string symbol,
             KucoinOrderSide side, 
             KucoinNewOrderType type, 
+            KucoinTradeType tradeType,
             decimal? price = null, 
             decimal? quantity = null, 
             decimal? funds = null,
@@ -590,6 +592,7 @@ namespace Kucoin.Net.Interfaces
         /// <param name="symbol">The symbol the order is for</param>
         /// <param name="side">The side of the order</param>
         /// <param name="type">The type of the order</param>
+        /// <param name="tradeType">Spot or margin trade</param>
         /// <param name="price">The price of the order. Only valid for limit orders.</param>
         /// <param name="quantity">The quantity of the order</param>
         /// <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -610,6 +613,7 @@ namespace Kucoin.Net.Interfaces
             string symbol,
             KucoinOrderSide side,
             KucoinNewOrderType type,
+            KucoinTradeType tradeType,
             decimal? price = null,
             decimal? quantity = null,
             decimal? funds = null,

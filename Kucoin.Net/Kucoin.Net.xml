@@ -538,13 +538,14 @@
             <param name="ct">Cancellation token</param>
             <returns>Null</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.PlaceOrder(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.PlaceOrder(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,Kucoin.Net.Objects.KucoinTradeType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
             <summary>
             Places an order
             </summary>
             <param name="symbol">The symbol the order is for</param>
             <param name="side">The side of the order</param>
             <param name="type">The type of the order</param>
+            <param name="tradeType">Spot or margin trade</param>
             <param name="price">The price of the order. Only valid for limit orders.</param>
             <param name="quantity">The quantity of the order</param>
             <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -562,13 +563,14 @@
             <param name="ct">Cancellation token</param>
             <returns>The id of the new order</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.PlaceOrderAsync(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.PlaceOrderAsync(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,Kucoin.Net.Objects.KucoinTradeType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
             <summary>
             Places an order
             </summary>
             <param name="symbol">The symbol the order is for</param>
             <param name="side">The side of the order</param>
             <param name="type">The type of the order</param>
+            <param name="tradeType">Spot or margin trade</param>
             <param name="price">The price of the order. Only valid for limit orders.</param>
             <param name="quantity">The quantity of the order</param>
             <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -1531,13 +1533,14 @@
             <param name="ct">Cancellation token</param>
             <returns>Null</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.PlaceOrder(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.PlaceOrder(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,Kucoin.Net.Objects.KucoinTradeType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
             <summary>
             Places an order
             </summary>
             <param name="symbol">The symbol the order is for</param>
             <param name="side">The side of the order</param>
             <param name="type">The type of the order</param>
+            <param name="tradeType">Spot or margin trade</param>
             <param name="price">The price of the order. Only valid for limit orders.</param>
             <param name="quantity">The quantity of the order</param>
             <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -1555,13 +1558,14 @@
             <param name="ct">Cancellation token</param>
             <returns>The id of the new order</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.PlaceOrderAsync(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.PlaceOrderAsync(System.String,Kucoin.Net.Objects.KucoinOrderSide,Kucoin.Net.Objects.KucoinNewOrderType,Kucoin.Net.Objects.KucoinTradeType,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinTimeInForce},System.Nullable{System.DateTime},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Decimal},System.String,System.Nullable{Kucoin.Net.Objects.KucoinStopCondition},System.Nullable{System.Decimal},System.Nullable{Kucoin.Net.Objects.KucoinSelfTradePrevention},System.String,System.Threading.CancellationToken)">
             <summary>
             Places an order
             </summary>
             <param name="symbol">The symbol the order is for</param>
             <param name="side">The side of the order</param>
             <param name="type">The type of the order</param>
+            <param name="tradeType">Spot or margin trade</param>
             <param name="price">The price of the order. Only valid for limit orders.</param>
             <param name="quantity">The quantity of the order</param>
             <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -2590,6 +2594,26 @@
             Trade account
             </summary>
         </member>
+        <member name="F:Kucoin.Net.Objects.KucoinAccountType.Margin">
+            <summary>
+            Margin account
+            </summary>
+        </member>
+        <member name="T:Kucoin.Net.Objects.KucoinTradeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kucoin.Net.Objects.KucoinTradeType.Trade">
+            <summary>
+            Spot Trade
+            </summary>
+        </member>
+        <member name="F:Kucoin.Net.Objects.KucoinTradeType.MarginTrade">
+            <summary>
+            Margin Trade
+            </summary>
+        </member>
         <member name="T:Kucoin.Net.Objects.KucoinDepositStatus">
             <summary>
             Status of a deposit
@@ -3213,6 +3237,11 @@
         <member name="P:Kucoin.Net.Objects.KucoinOrder.Type">
             <summary>
             The type of the order
+            </summary>
+        </member>
+        <member name="P:Kucoin.Net.Objects.KucoinOrder.TradeType">
+            <summary>
+            The trade type, such as Spot or Margin
             </summary>
         </member>
         <member name="P:Kucoin.Net.Objects.KucoinOrder.Side">

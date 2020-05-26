@@ -791,6 +791,7 @@ namespace Kucoin.Net
         /// <param name="symbol">The symbol the order is for</param>
         /// <param name="side">The side of the order</param>
         /// <param name="type">The type of the order</param>
+        /// <param name="tradeType">Spot or margin trade</param>
         /// <param name="price">The price of the order. Only valid for limit orders.</param>
         /// <param name="quantity">The quantity of the order</param>
         /// <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -811,6 +812,7 @@ namespace Kucoin.Net
             string symbol,
             KucoinOrderSide side, 
             KucoinNewOrderType type, 
+            KucoinTradeType tradeType,
             decimal? price = null, 
             decimal? quantity = null, 
             decimal? funds = null,
@@ -825,7 +827,7 @@ namespace Kucoin.Net
             decimal? stopPrice = null,
             KucoinSelfTradePrevention? selfTradePrevention = null,
             string? clientOrderId = null, 
-            CancellationToken ct = default) => PlaceOrderAsync(symbol, side, type, price, quantity, funds, timeInForce, cancelAfter, postOnly, hidden, iceBerg, visibleIceBergSize, remark, stop, stopPrice, selfTradePrevention, clientOrderId, ct).Result;
+            CancellationToken ct = default) => PlaceOrderAsync(symbol, side, type, tradeType, price, quantity, funds, timeInForce, cancelAfter, postOnly, hidden, iceBerg, visibleIceBergSize, remark, stop, stopPrice, selfTradePrevention, clientOrderId, ct).Result;
 
         /// <summary>
         /// Places an order
@@ -833,6 +835,7 @@ namespace Kucoin.Net
         /// <param name="symbol">The symbol the order is for</param>
         /// <param name="side">The side of the order</param>
         /// <param name="type">The type of the order</param>
+        /// <param name="tradeType">Spot or margin trade</param>
         /// <param name="price">The price of the order. Only valid for limit orders.</param>
         /// <param name="quantity">The quantity of the order</param>
         /// <param name="funds">The funds to use for the order. Only valid for market orders. If used, quantity needs to be empty</param>
@@ -853,6 +856,7 @@ namespace Kucoin.Net
             string symbol,
             KucoinOrderSide side,
             KucoinNewOrderType type,
+            KucoinTradeType tradeType, 
             decimal? price = null,
             decimal? quantity = null,
             decimal? funds = null,
@@ -888,6 +892,7 @@ namespace Kucoin.Net
                 { "symbol", symbol },
                 { "side", JsonConvert.SerializeObject(side, new OrderSideConverter(false)) },
                 { "type", JsonConvert.SerializeObject(type, new NewOrderTypeConverter(false)) },
+                { "tradeType", JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) },
                 { "clientOid", clientOrderId ?? Guid.NewGuid().ToString() }
             };
             parameters.AddOptionalParameter("price", price);
