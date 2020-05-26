@@ -15,8 +15,13 @@ namespace Kucoin.Net.Objects
         /// </summary>
         public string Symbol { get; set; } = "";
         /// <summary>
-        /// The type of the order
+        /// The type of trade
         /// </summary>
+        [JsonConverter(typeof(TradeTypeConverter))]
+        public KucoinTradeType TradeType { get; set; }
+        /// <summary>
+        /// The type of the order
+        /// </summary>         
         [JsonConverter(typeof(OrderTypeConverter))]
         public KucoinOrderType Type { get; set; }
         /// <summary>

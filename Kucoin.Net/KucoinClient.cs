@@ -1089,6 +1089,7 @@ namespace Kucoin.Net
         /// <summary>
         /// Gets a list of fills
         /// </summary>
+        /// <param name="tradeType">Filter list by spot trade or margin trade</param>
         /// <param name="symbol">Filter list by symbol</param>
         /// <param name="type">Filter list by order type</param>
         /// <param name="side">Filter list by order side</param>
@@ -1099,12 +1100,13 @@ namespace Kucoin.Net
         /// <param name="pageSize">The amount of results per page</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of fills</returns>
-        public WebCallResult<KucoinPaginated<KucoinFill>> GetFills(string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, string? orderId = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default) => 
-            GetFillsAsync(symbol, side, type, startTime, endTime, orderId, currentPage, pageSize, ct).Result;
+        public WebCallResult<KucoinPaginated<KucoinFill>> GetFills(KucoinTradeType tradeType, string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, string? orderId = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default) => 
+            GetFillsAsync(tradeType, symbol, side, type, startTime, endTime, orderId, currentPage, pageSize, ct).Result;
 
         /// <summary>
         /// Gets a list of fills
         /// </summary>
+        /// <param name="tradeType">Filter list by spot trade or margin trade</param>
         /// <param name="symbol">Filter list by symbol</param>
         /// <param name="type">Filter list by order type</param>
         /// <param name="side">Filter list by order side</param>
@@ -1115,7 +1117,7 @@ namespace Kucoin.Net
         /// <param name="pageSize">The amount of results per page</param>
         /// <param name="ct">Cancellation token</param>
         /// <returns>List of fills</returns>
-        public async Task<WebCallResult<KucoinPaginated<KucoinFill>>> GetFillsAsync(string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, string? orderId = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default)
+        public async Task<WebCallResult<KucoinPaginated<KucoinFill>>> GetFillsAsync(KucoinTradeType tradeType, string? symbol = null, KucoinOrderSide? side = null, KucoinOrderType? type = null, DateTime? startTime = null, DateTime? endTime = null, string? orderId = null, int? currentPage = null, int? pageSize = null, CancellationToken ct = default)
         {
             symbol?.ValidateKucoinSymbol();
             pageSize?.ValidateIntBetween(nameof(pageSize), 10, 500);
@@ -1123,7 +1125,10 @@ namespace Kucoin.Net
             if (endTime.HasValue && startTime.HasValue && (endTime.Value - startTime.Value).TotalDays > 7)
                 throw new ArgumentException("Difference between start and end time can be a maximum of 1 week");
             
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>()
+            {
+                {"tradeType", JsonConvert.SerializeObject(tradeType, new TradeTypeConverter(false)) }
+            };
             parameters.AddOptionalParameter("symbol", symbol);
             parameters.AddOptionalParameter("side", side.HasValue ? JsonConvert.SerializeObject(side, new OrderSideConverter(false)) : null);
             parameters.AddOptionalParameter("type", type.HasValue ? JsonConvert.SerializeObject(type, new OrderTypeConverter(false)) : null);

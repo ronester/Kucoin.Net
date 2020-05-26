@@ -710,10 +710,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of historical orders</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetFills(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetFills(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of fills
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -725,10 +726,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of fills</returns>
         </member>
-        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetFillsAsync(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.Interfaces.IKucoinClient.GetFillsAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of fills
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -1709,10 +1711,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of historical orders</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.GetFills(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.GetFills(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of fills
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -1724,10 +1727,11 @@
             <param name="ct">Cancellation token</param>
             <returns>List of fills</returns>
         </member>
-        <member name="M:Kucoin.Net.KucoinClient.GetFillsAsync(System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
+        <member name="M:Kucoin.Net.KucoinClient.GetFillsAsync(Kucoin.Net.Objects.KucoinTradeType,System.String,System.Nullable{Kucoin.Net.Objects.KucoinOrderSide},System.Nullable{Kucoin.Net.Objects.KucoinOrderType},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <summary>
             Gets a list of fills
             </summary>
+            <param name="tradeType">Filter list by spot trade or margin trade</param>
             <param name="symbol">Filter list by symbol</param>
             <param name="type">Filter list by order type</param>
             <param name="side">Filter list by order side</param>
@@ -2922,10 +2926,15 @@
             The symbol the fill is for
             </summary>
         </member>
+        <member name="P:Kucoin.Net.Objects.KucoinFill.TradeType">
+            <summary>
+            The type of trade
+            </summary>
+        </member>
         <member name="P:Kucoin.Net.Objects.KucoinFill.Type">
             <summary>
             The type of the order
-            </summary>
+            </summary>         
         </member>
         <member name="P:Kucoin.Net.Objects.KucoinFill.Side">
             <summary>
